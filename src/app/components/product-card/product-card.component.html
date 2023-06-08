@@ -1,0 +1,38 @@
+<div class="card h-100 btn cursor-pointer" (click)="redirectToDetails()">
+  <img [src]="productList.thumbnail" class="card-img-top" alt="..." />
+  <div class="card-body">
+    <h5 class="card-title">{{ productList.title }}</h5>
+    <p class="card-text">
+      {{ productList.description }}
+    </p>
+    <!-- <h6 class="card-text text-center">
+      {{ productList.price | currency : "LE " }}
+    </h6>
+    <div *ngIf="productList.stock == 0; else elseBlock">
+      <p class="text-danger text-center fs-5">Out of stock</p>
+    </div>
+
+    <ng-template #elseBlock>
+      <p class="text-success text-center fs-5">In stock</p>
+    </ng-template>
+    <button class="btn btn-primary" (click)="redirectToDetails()">
+      Details
+    </button> -->
+  </div>
+  <h6 class="card-text text-center">
+    {{ productList.price | currency : "LE " }}
+  </h6>
+  <div *ngIf="productList.stock == 0; else elseBlock">
+    <p class="text-danger text-center fs-5">Out of stock</p>
+  </div>
+
+  <ng-template #elseBlock>
+    <p class="text-success text-center fs-5">In stock</p>
+  </ng-template>
+  <button class="btn btn-primary" (click)="redirectToDetails()">Details</button>
+  <div class="card-footer">
+    <small class="text-body-secondary">{{
+      productList.createdAt | date : "MMM d, y, h:mm:ss a"
+    }}</small>
+  </div>
+</div>
